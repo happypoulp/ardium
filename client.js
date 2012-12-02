@@ -11,10 +11,10 @@ now.ready(function()
 
     now.name = 'Francois';
 
-    now.receiveMessage = function(name, message)
+    now.onMessageReceived = function(name, message)
     {
         console.log('received', name, message);
     }
 
-    now.distributeMessage('Test: ' + new Date());
+    now.sendAll('Test: ' + new Date());
 });

@@ -9,9 +9,8 @@ var everyone = require("now").initialize(server);
 
 console.log('Required everyone...');
 
-everyone.now.distributeMessage = function(message, color)
+everyone.now.sendAll = function(message)
 {
-    console.log('#####', message, color);
-    // this.now refers to the `now` of the caller's scope
-    everyone.now.receiveMessage(this.now.name, message, color);
+    console.log('##### ', message);
+    everyone.now.onMessageReceived(this.now.name, message);
 };
