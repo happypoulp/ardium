@@ -7,6 +7,8 @@ server.listen(process.env.PORT || 8080);
 
 var everyone = require("now").initialize(server);
 
+console.log('Required everyone...');
+
 everyone.now.distributeMessage = function(message, color)
 {
     console.log('#####', message, color);
