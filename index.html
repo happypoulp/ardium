@@ -1,49 +1,55 @@
+<!DOCTYPE html>
 <html>
-    <body style="font-family: Helvetica; background-color: #333; text-align: center;">
-        <script type="text/javascript" src="nowjs/now.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-
-        <div id="messages" style="font-size: 30px; display: none; text-align: left;"></div>
-        <input type="text" id="text-input" style="font-size:40px; margin-top: 16px;"/>
-
-        <script>
-            var color = 'rgb(' +
-                (255 - Math.round(Math.random() * 155)) + ',' +
-                (255 - Math.round(Math.random() * 155))  + ',' +
-                (255 - Math.round(Math.random() * 155)) +
-            ')';
-
-            now.ready(function()
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Poiret+One|Iceland' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+            body
             {
-                now.name = prompt("What's your name?", "");  
+                font-family: 'Poiret One', 'Iceland', helvetica;
+                background-color: #333;
+                background-image: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/navy_blue.png);
+                text-align: center;
+                color: #fff;
+            }
 
-                $('#messages').show();
-            
-                now.receiveMessage = function(name, message, color)
-                {
-                    $("#messages").append(
-                        '<br><span style="color: ' + color + ';"><b>' + name + '</b>: ' + message
-                    );
-                }
-                
-                var color = 'rgb(' +
-                    Math.round(Math.random() * 255) + ',' +
-                    Math.round(Math.random() * 255)  + ',' +
-                    Math.round(Math.random() * 255) +
-                ')';
+            h1
+            {
+                margin-top: 150px;
+                font-weight: normal;
+                font-size: 80px;
+                text-shadow: 0 0 4px #000;
+            }
 
-                $(document).keyup(function(event)
-                {
-                    if (event.keyCode == 13)
-                    {
-                        now.distributeMessage($("#text-input").val(), color);
-                        $("#text-input").val('');
-                    }
-                });
-                
-            });
-        </script>
+            a
+            {
+                text-decoration: none;
+            }
 
+            .arduino
+            {
+                color: #00979C;
+            }
+
+            .now
+            {
+                color: #f79520;
+            }
+
+            .gitproject
+            {
+                color: #8dd55a;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Connect your 
+            <a class="arduino" href="http://www.arduino.cc/">Arduino</a>
+            <br/>to this server
+            <br/>
+            <a class="gitproject" href="https://github.com/happypoulp/ardium">via</a>
+            <a href="https://github.com/Flotype/now" class="now">nowjs</a>
+        </h1>
     </body>
 </html>
 
