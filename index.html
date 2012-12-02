@@ -1,0 +1,49 @@
+<html>
+    <body style="font-family: Helvetica; background-color: #333; text-align: center;">
+        <script type="text/javascript" src="nowjs/now.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+
+        <div id="messages" style="font-size: 30px; display: none; text-align: left;"></div>
+        <input type="text" id="text-input" style="font-size:40px; margin-top: 16px;"/>
+
+        <script>
+            var color = 'rgb(' +
+                (255 - Math.round(Math.random() * 155)) + ',' +
+                (255 - Math.round(Math.random() * 155))  + ',' +
+                (255 - Math.round(Math.random() * 155)) +
+            ')';
+
+            now.ready(function()
+            {
+                now.name = prompt("What's your name?", "");  
+
+                $('#messages').show();
+            
+                now.receiveMessage = function(name, message, color)
+                {
+                    $("#messages").append(
+                        '<br><span style="color: ' + color + ';"><b>' + name + '</b>: ' + message
+                    );
+                }
+                
+                var color = 'rgb(' +
+                    Math.round(Math.random() * 255) + ',' +
+                    Math.round(Math.random() * 255)  + ',' +
+                    Math.round(Math.random() * 255) +
+                ')';
+
+                $(document).keyup(function(event)
+                {
+                    if (event.keyCode == 13)
+                    {
+                        now.distributeMessage($("#text-input").val(), color);
+                        $("#text-input").val('');
+                    }
+                });
+                
+            });
+        </script>
+
+    </body>
+</html>
+
