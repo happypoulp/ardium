@@ -11,9 +11,9 @@ now.ready(function()
     console.log('Ready ;)');
 
     var board = new five.Board()
-        , leds = {},
+        , leds = {}
         , buttons = {}
-        , buttonHandler: function(eventType, buttonId)
+        , buttonHandler = function(eventType, buttonId)
         {
             return function()
             {
